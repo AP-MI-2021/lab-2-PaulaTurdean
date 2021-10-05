@@ -1,4 +1,5 @@
 # TURDEAN PAULA-FLORINA PROBLEMELE 3 SI 4 + (LA ALEGERE) PROBLEMA 5
+# INLOCUIESC PROBLEMA 4 (NU IMI IESE DELOC) CU PROBLEMA 1
 from typing import Union
 
 
@@ -45,20 +46,34 @@ def test_is_palindrome():
     assert is_palindrome(1234) is False
 
 
+def get_largest_prime_below(n):
+    copie = int(n)
+    for i in range(copie, 2, -1):
+        if is_prime(i) is True:
+            return i
+
+
+def test_get_largest_prime_below():
+    assert get_largest_prime_below(18) == 17
+    assert get_largest_prime_below(3) == 2
+
+
 shouldRun = True
 while shouldRun:
     print("1)Determină numerele prime p1 si p2 astfel încât n = p1 + p2. Pentru ce fel de n există soluție?")
-    print("2)")
+    print("2)Găsește ultimul număr prim mai mic decât un număr dat.")
     print("3)Determină dacă un număr dat este palindrom.")
     print("x)Iesire")
     optiune = input("Alegeti o optiune: ")
     if optiune == "1":
         nr = input("Dati un numar: ")
-        print(get_goldbach(nr))
+        print(get_goldbach(nr), " Exista solutii doar pentru numerele >3 si pare")
     elif optiune == "2":
-        print("XXXXXXXXXXXXXXXXXXXXXXXX")
+        nr = input("Dati un numar: ")
+        print(get_largest_prime_below(nr))
     elif optiune == "3":
         nr = input("Dati un numar: ")
         print(is_palindrome(nr))
     elif optiune == "x":
+        print("Ati iesit din program")
         shouldRun = False
