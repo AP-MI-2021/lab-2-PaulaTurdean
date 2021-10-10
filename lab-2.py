@@ -3,6 +3,11 @@ from typing import Union
 
 
 def is_prime(x):
+    """
+    Determina daca un n umar este prim sau nu.
+    :param x: Numarul verificat.
+    :return: Returneaza True daca numarul este prim si False in caz contrar
+    """
     if x < 2:
         return False
     for i in range(2, x//2):
@@ -11,7 +16,17 @@ def is_prime(x):
     return True
 
 
+def test_is_prime():
+    assert is_prime(0) is False
+    assert is_prime(2) is True
+
+
 def get_goldbach(n) -> Union[(int, int)]:
+    """
+    Descompune un numar in suma de doi termeni primi.
+    :param n: Numarul descompus.
+    :return: Returneaza cei doi temeni (numere intregi).
+    """
     if int(n) < 3:
         if int(n) % 2 != 0:
             print("Numarul nu este valabil")
@@ -23,8 +38,7 @@ def get_goldbach(n) -> Union[(int, int)]:
 
 
 def test_get_goldbach():
-    assert get_goldbach(36) == 5, 31
-    assert get_goldbach(4) == 2, 2
+    assert get_goldbach(36) == (5, 31)
 
 
 def is_palindrome(n) -> bool:
@@ -64,6 +78,10 @@ def get_newton_sqrt(n, steps) -> float:
     return n
 
 
+def test_get_newton_sqrt():
+    assert get_newton_sqrt(9, 2) == 3.4
+
+
 shouldRun = True
 while shouldRun:
     print("1)Determină numerele prime p1 si p2 astfel încât n = p1 + p2. Pentru ce fel de n există soluție?")
@@ -88,3 +106,5 @@ while shouldRun:
     elif optiune == "x":
         print("Ati iesit din program")
         shouldRun = False
+    else:
+        print("!!! Optiune gresita !!!")
