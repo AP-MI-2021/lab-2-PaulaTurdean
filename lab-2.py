@@ -1,5 +1,4 @@
-# TURDEAN PAULA-FLORINA PROBLEMELE 3 SI 4 + (LA ALEGERE) PROBLEMA 5
-# INLOCUIESC PROBLEMA 4 (NU IMI IESE DELOC) CU PROBLEMA 1
+# TURDEAN PAULA-FLORINA PROBLEMELE 3 SI 4 + (LA ALEGERE) PROBLEMA 5 si PROBLEMA 1
 from typing import Union
 
 
@@ -58,20 +57,32 @@ def test_get_largest_prime_below():
     assert get_largest_prime_below(3) == 2
 
 
+def get_newton_sqrt(n, steps) -> float:
+    copie = float(n)
+    for i in range(steps):
+        n = 0.5 * (n + copie/n)
+    return n
+
+
 shouldRun = True
 while shouldRun:
     print("1)Determină numerele prime p1 si p2 astfel încât n = p1 + p2. Pentru ce fel de n există soluție?")
-    print("2)Găsește ultimul număr prim mai mic decât un număr dat.")
-    print("3)Determină dacă un număr dat este palindrom.")
+    print("2)Determina radicalul unui număr dat folosind metoda lui Newton.")
+    print("3)Găsește ultimul număr prim mai mic decât un număr dat.")
+    print("4)Determină dacă un număr dat este palindrom.")
     print("x)Iesire")
     optiune = input("Alegeti o optiune: ")
     if optiune == "1":
         nr = input("Dati un numar: ")
         print(get_goldbach(nr), " Exista solutii doar pentru numerele >3 si pare")
     elif optiune == "2":
+        nr = float(input("Dati un  numar: "))
+        st = int(input("Dati un numar de pasi: "))
+        print(get_newton_sqrt(nr, st))
+    elif optiune == "3":
         nr = input("Dati un numar: ")
         print(get_largest_prime_below(nr))
-    elif optiune == "3":
+    elif optiune == "4":
         nr = input("Dati un numar: ")
         print(is_palindrome(nr))
     elif optiune == "x":
